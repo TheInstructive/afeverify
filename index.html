@@ -6,11 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script type="module" src="main.ts"></script>
   </head>
   <body>
     <div id="app">
-      <w3m-core-button></w3m-core-button>
+      <div id="verification">
+        <ol>
+          <li class="step">
+            <span>Connect your wallet.</span>
+            <br />
+            <br />
+            <w3m-core-button></w3m-core-button>
+          </li>
+
+          <li class="step">
+            <span>Click Sign button to create a proof of wallet ownership command.</span>
+            <button disabled="" id="sign">Sign</button>
+          </li>
+
+          <li class="step">
+            <span>Copy the following command (click to select all & copy):</span>
+            <br />
+            <textarea id="result" readonly=""></textarea>
+          </li>
+
+          <li class="step">
+            <span>Return to our Discord server and use the command.</span>
+            <!-- TODO a gif or a series of images showing how to do that ^^ -->
+          </li>
+        </ol>
+      </div>
+
+
+      <div id="info">
+        <h2>Please, use /connect command on our Discord server to start wallet verification process.</h2>
+        <!-- TODO a gif or a series of images showing how to do that ^^ -->
+      </div>
     </div>
   </body>
 </html>

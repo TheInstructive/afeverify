@@ -1,5 +1,5 @@
 
-import { configureChains, createClient } from '@wagmi/core';
+import { configureChains, createClient, watchAccount, signMessage } from '@wagmi/core';
 import { EthereumClient, modalConnectors } from '@web3modal/ethereum';
 import { Web3Modal } from '@web3modal/html';
 import { publicProvider } from '@wagmi/core/providers/public';
@@ -27,9 +27,70 @@ const wagmiClient = createClient({
 // Web3Modal Ethereum Client
 const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-export const web3Modal = new Web3Modal(
+// web3modal
+const web3Modal = new Web3Modal(
   {
     projectId
   },
   ethereumClient
-)
+);
+
+
+// query hash
+const params = new URLSearchParams(location.search);
+const hash = params.get('hash');
+
+if (hash) {
+  const steps = document.getElementsByClassName('step');
+  const result = document.querySelector<HTMLTextAreaElement>('#result');
+
+  // copy results
+  if (result) {
+    result.addEventListener('click', function() {
+      result.select();
+      document.execCommand('copy');
+    });
+  }
+
+  // hide info
+  const verification = document.querySelector('#verification');
+  const info = document.querySelector('#info');
+
+  if (verification && info) {
+    info.setAttribute('style', "display: none;");
+    verification.setAttribute('style', "display: block;");
+  }
+
+  // sign button
+  const button = document.querySelector<HTMLButtonElement>('#sign');
+
+  if (button) {
+    button.addEventListener('click', function() {
+      steps[1].children[0].classList.remove('done');
+
+      signMessage({
+        "message": hash,
+      }).then(signed => {
+        if (result) {
+          result.textContent = "/verify " + signed;
+          steps[1].children[0].classList.add('done');
+        }
+      });
+    });
+    
+  }
+
+  watchAccount((account) => {
+    if (button) {
+      button.disabled = !account.isConnected;
+    }
+
+    if (steps) {
+      if (account.isConnected) {
+        steps[0].children[0].classList.add('done');
+      } else {
+        steps[0].children[0].classList.remove('done');
+      }
+    }
+  });
+}
