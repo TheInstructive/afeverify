@@ -4,17 +4,17 @@ import { EthereumClient, modalConnectors } from '@web3modal/ethereum';
 import { Web3Modal } from '@web3modal/html';
 import { publicProvider } from '@wagmi/core/providers/public';
 
-import { localNet, cronosMainnet, cronosTestnet } from "./Chains";
-import { RockXProvider, AFEProvider, VVSProvider } from "./RPC";
+import { cronosMainnet } from "./Chains";
+import { RockXProvider, VVSProvider } from "./RPC";
 
-const chains = [localNet, cronosMainnet, cronosTestnet];
+
+const chains = [cronosMainnet];
 const projectId = "049d0d460cbc1537aca58aee3d40ed73";
 
 
 // Wagmi client
 const { provider } = configureChains(chains, [
   publicProvider(),
-  AFEProvider(),
   RockXProvider(),
   VVSProvider(),
 ]);
