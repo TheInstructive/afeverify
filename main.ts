@@ -61,6 +61,8 @@ if (hash) {
     verification.setAttribute('style', "display: block;");
   }
 
+  let accountAddress = "";
+
   // sign button
   const button = document.querySelector<HTMLButtonElement>('#sign');
 
@@ -72,12 +74,11 @@ if (hash) {
         "message": hash,
       }).then(signed => {
         if (result) {
-          result.textContent = "/verify " + signed;
+          result.textContent = "/verify hash:" + accountAddress + "-" + signed;
           steps[1].children[0].classList.add('done');
         }
       });
     });
-    
   }
 
   watchAccount((account) => {
@@ -87,6 +88,7 @@ if (hash) {
 
     if (steps) {
       if (account.isConnected) {
+        accountAddress = account.address as string;
         steps[0].children[0].classList.add('done');
       } else {
         steps[0].children[0].classList.remove('done');
