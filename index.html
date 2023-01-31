@@ -13,36 +13,60 @@
   <body>
     <div id="app">
       <div id="verification">
-        <ol>
+        <ul>
           <li class="step">
-            <span>Connect your wallet.</span>
-            <br />
-            <br />
+            <span>CONNECT YOUR WALLET</span>
+            <p>Click <b>Connect Wallet</b> button, select your wallet and click <b>Connect</b> finish this step.</p>
             <w3m-core-button></w3m-core-button>
+            <br/>
+            <br/>
+            <img src="./images/wallet.gif" />
+
+          </li>
+          <li class="step">
+            <span>CLICK SIGN BUTTON TO CREATE A PROOF <br/>OF WALLET OWNERSHIP COMMAND</span> 
+            <p>Click <b>SIGN</b> button, click sign on your wallet window to finish this step.</p>
+            <button disabled="" id="sign"><img src="./images/sign.png"/></button>
+            <br/><br/>
+            <img src="./images/sign.gif" />
+
           </li>
 
           <li class="step">
-            <span>Click Sign button to create a proof of wallet ownership command.</span>
-            <button disabled="" id="sign">Sign</button>
-          </li>
-
-          <li class="step">
-            <span>Copy the following command (click to select all & copy):</span>
+            <span>COPY THE FOLLOWING COMMAND:</span>
+            <p>Click <b>SELECT ALL & COPY</b> button to copy required command.</p>
+            <textarea id="result" aria-readonly="" ></textarea>
             <br />
-            <textarea id="result" readonly=""></textarea>
+            <button id="copyall"><img src="./images/select.png"/></button>
           </li>
 
           <li class="step">
-            <span>Return to our Discord server and use the command.</span>
+            <span>RETURN TO OUR DISCORD SERVER<br/> AND USE THE COMMAND</span>
+            <p>Return to <b>#wallet-verification</b> channel, paste the command that you copied in the previous step<br/> and send it to finish verification progress.</p>
+            <br/>
+            <img src="./images/discord.gif" />
+
             <!-- TODO a gif or a series of images showing how to do that ^^ -->
           </li>
-        </ol>
+        </ul>
       </div>
 
 
       <div id="info">
-        <h2>Please, use /connect command on our Discord server to start wallet verification process.</h2>
+        <h1>BABY ALIENS<br/>WALLET VERIFICATION</h1>
         <!-- TODO a gif or a series of images showing how to do that ^^ -->
+        <ul id="info-list">
+          <li>
+            Use <b>/connect</b> command in <b>#wallet-verification</b> channel.
+
+            <img src="./images/connect.gif"/>
+          </li>
+          <li>
+            Click <b>Proceed to website</b> button.
+            <img src="./images/proceed.gif"/>
+
+          </li>
+        </ul>
       </div>
     </div>
   </body>

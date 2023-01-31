@@ -96,3 +96,12 @@ if (hash) {
     }
   });
 }
+
+// textarea
+const textarea = document.getElementById('result') as HTMLTextAreaElement;
+const button = document.getElementById('copyall') as HTMLTextAreaElement;
+
+button.addEventListener('click', () => {
+  textarea.select();
+  navigator.clipboard.writeText(textarea.value);
+});

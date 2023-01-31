@@ -1,10 +1,28 @@
+@font-face {
+    font-family: 'Pixellari';
+    src: url('./fonts/Pixellari.eot');
+    src: url('./fonts/Pixellari.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/Pixellari.ttf') format('truetype'),
+         url('./fonts/Pixellari.woff') format('woff'),
+         url('./fonts/Pixellari.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 body {
+    background: url(./images/bg.png);
     margin: 0;
     padding: 0;
     color: #cdcdcd;
-    background-color: #00041C;
     font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: "Pixellari";
+    text-shadow: 3px 1px #5f30ccb6;
+    letter-spacing: 2px;
+    font-size: 4em;
+    text-align: center;
 }
 
 #app {
@@ -15,49 +33,128 @@ body {
     justify-content: center;
 }
 
+
 #verification {
     display: none;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
 }
 
 #verification li {
-    font-size: 1.5em;
+    font-size: 2.5em;
+    font-family: "Pixellari";
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 0.5em;
+    padding: 1em;
 }
 
 #verification li span {
-    font-size: 0.8em;
+    font-size: 1em;
+    color: #857cff;
+    text-shadow: -3px 1px #211b6e;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #sign {
-    display: block;
-    margin: 1em 0;
-    cursor: pointer;
-    background-color: #119053;
-    color: #211A1D;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    border-radius: 0.5em;
-    border: 1px solid #211A1D;
+    background: none;
+    border: 0;
 }
 
 #sign:disabled {
     cursor: initial;
-    background-color: #0e7041;
+    background: none;
+    filter: grayscale(100%);
+
 }
 
 #result {
-    color: #cdcdcd;
-    background-color: #00041C;
+    color: #000;
+    background-color: #f7f6f6;
     border: none;
     width: 500px;
     height: 60px;
     max-width: 500px;
     max-height: 200px;
+    border-radius: 0.5em;
+    font-family: "Pixellari";
+    font-size: 0.5em;
+    padding: 10px;
+}
+
+#copyall {
+    margin:0;
+    font-family: "Pixellari";
+    border: 0;
+    text-shadow: 3px 1px #000000b6;
+    cursor: pointer;
+    background:none;
+}
+
+.step img {
+    border-radius: 10px;
 }
 
 .step {
     margin: 1em 0;
 }
 
+.step p{
+    font-size: 0.5em;
+}
+
+.step p b{
+    color: #5fcde4;
+}
+
 .done {
     text-decoration: line-through;
+}
+
+ul{
+    list-style: decimal;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#info-list {
+    background: url(./images/info.png);
+    width: 620px;
+    height: 544px;
+    background-repeat: no-repeat;
+}
+
+#info-list img {
+    padding-top: 20px;
+}
+
+#info ul li {
+    color: #00041C;
+    padding-left: 30px;
+}
+
+#info ul li:first-child{
+    padding: 30px;
+}
+
+#info ul li b{
+    background-color: #00000080;
+    color: #fff;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+#info ul {
+    border-radius: 10px;
 }
