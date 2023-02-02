@@ -63,6 +63,7 @@ h1 {
 #sign {
     background: none;
     border: 0;
+    cursor: pointer;
 }
 
 #sign:disabled {
