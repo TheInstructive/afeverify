@@ -159,3 +159,49 @@ ul{
 #info ul {
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-family: "Pixellari";
+        text-shadow: 3px 1px #5f30ccb6;
+        letter-spacing: 2px;
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    #info-list {
+        width: 100%;
+        background-repeat: no-repeat;
+    }
+    
+    #info-list img {
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    #info ul li {
+        color: #00041C;
+        padding-left: 0px;
+        font-size: 1em;
+    }
+    
+    #info ul li:first-child{
+        padding: 0px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    #info ul li b{
+        background-color: #00000080;
+        color: #fff;
+        padding: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+    }
+    
+    #info ul {
+        border-radius: 10px;
+    }
+
+}
